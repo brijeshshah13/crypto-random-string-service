@@ -2,7 +2,10 @@ module github.com/brijeshshah13/crypto-random-string-service
 
 go 1.17
 
-require github.com/gin-gonic/gin v1.7.4
+require (
+	github.com/brijeshshah13/crypto-random-string v0.1.4
+	github.com/gin-gonic/gin v1.7.4
+)
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
