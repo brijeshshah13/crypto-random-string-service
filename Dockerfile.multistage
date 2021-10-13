@@ -1,0 +1,26 @@
+FROM golang:1.17-buster AS build
+
+WORKDIR /app
+
+COPY go.mod ./
+COPY go.sum ./
+RUN go mod download
+
+COPY *.go ./
+
+RUN go build -o /crypto-random-string-service
+
+##
+## Deploy
+##
+FROM gcr.io/distroless/base-debian10
+
+WORKDIR /
+
+COPY --from=build /crypto-random-string-service /crypto-random-string-service
+
+EXPOSE 8080
+
+USER nonroot:nonroot
+
+ENTRYPOINT ["/crypto-random-string-service"]
