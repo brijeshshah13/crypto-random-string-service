@@ -6,6 +6,7 @@ services:
       - roach
     build:
       context: .
+      dockerfile: Dockerfile.multistage
     container_name: crypto-random-string-service
     hostname: crypto-random-string-service
     networks:
