@@ -12,7 +12,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v2
         with:
-          go-version: 1.16.4
+          go-version: 1.17.1
 
       - name: Checkout code
         uses: actions/checkout@v2
@@ -25,6 +25,7 @@ jobs:
 
       - name: Build Docker image
         uses: docker/build-push-action@v2
+        file: {context}/Dockerfile.multistage
         with:
           push: false
           tags: ${{ github.event.repository.name }}:latest, ${{ github.repository }}:latest

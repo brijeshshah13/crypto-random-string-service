@@ -27,7 +27,7 @@ import (
 // retry with exponential back-off.
 
 // Requirement 1: The application response must contain a heart ("<3")
-func TestRespondsWithLove(t *testing.T) {
+func TestRespondsWithHelloDocker(t *testing.T) {
 
 	pool, err := dockertest.NewPool("")
 	require.NoError(t, err, "could not connect to Docker")
