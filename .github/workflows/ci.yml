@@ -25,7 +25,7 @@ jobs:
 
       - name: Build Docker image
         uses: docker/build-push-action@v2
-        file: {context}/Dockerfile.multistage
+        file: ./Dockerfile.multistage
         with:
           push: false
           tags: ${{ github.event.repository.name }}:latest, ${{ github.repository }}:latest
